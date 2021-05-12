@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:400,800&display=swap");
+
+@mixin colors-btn($color) {
+  --color-btn: #{$color};
+  --color-btn-bg: #{darken($color, 20%)};
+  --color-btn-hover: #{lighten($color, 5%)};
+  --color-btn-bg-hover: #{darken($color, 25%)};
+}
+
+%letterpress {
+  color: transparent;
+  background-color: var(--title-bg-color);
+  background-clip: text;
+  text-shadow: var(--title-text-shadow);
+  transition: background-color 0.2s ease-in-out 0.1s, text-shadow 0.2s ease-in-out 0.1s;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  @include colors-btn(hsl(236, 12%, 38%));
+
+  --color-font: hsl(0, 0%, 75%);
+  --color-focus: hsl(0, 0%, 40%);
+  --color-bg: hsl(236, 12%, 23%);
+
+  --shadow-focus: 0 0 0 1px var(--color-focus);
+  --shadow-inner: hsla(240, 30%, 28%, 0.25) 0 30px 60px -12px inset, hsla(0, 0%, 0%, 0.3) 0 18px 36px -18px inset;
+
+  --title-bg-color: hsla(0, 0%, 0%, 0.6);
+  --title-text-shadow: 2px 2px 3px hsla(0, 0%, 100%, 0.1);
+}
+
+.light {
+  @include colors-btn(hsl(0, 0%, 80%));
+
+  --color-font: hsl(0, 0%, 25%);
+  --color-bg: hsl(0, 0%, 90%);
+
+  --title-bg-color: hsl(0, 0%, 40%);
+  --title-text-shadow: 0 3px 3px hsla(0, 0%, 100%, 0.5);
+}
+
+:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+::selection {
+  color: white;
+  background-color: var(--color-focus);
+}
+
+html {
+  box-sizing: border-box;
+
+  font-family: "Muli", sans-serif;
+  font-size: 62.5%;
+}
+
+.container {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+
+  font-size: 1.6rem;
+
+  color: var(--color-font);
+  background-color: var(--color-bg);
+  transition: color 0.1s linear 0.1s, background-color 0.2s ease-in-out;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 50rem;
+  grid-template-columns: minmax(30ch, 75ch) min-content minmax(30ch, 75ch);
+  grid-template-areas: "code-before title code-after";
+  grid-gap: 2.5rem;
+  margin: 10rem 0;
+  padding: 2.5rem;
+  position: relative;
+
+  background-color: var(--color-bg);
+  border-radius: 10px;
+  box-shadow: hsla(0, 0%, 0%, 0.56) 0 2.2rem 7rem 4px;
+  transition: background-color 0.2s ease-in-out 0.1s;
+}
+
+.code {
+  position: relative;
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+
+    font-family: monospace;
+
+    background-color: hsla(0, 0%, 0%, 0.1);
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--shadow-inner);
+
+    resize: none;
+    overflow-y: scroll;
+  }
+
+  textarea:focus {
+    box-shadow: var(--shadow-focus), var(--shadow-inner);
+  }
+
+  span {
+    @extend %letterpress;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: "Muli", sans-serif;
+    font-weight: 800;
+    font-size: 4rem;
+
+    pointer-events: none;
+  }
+
+  textarea:not(:placeholder-shown) + span {
+    display: none;
+  }
+}
+
+.tools {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -75%);
+
+  button {
+    min-width: 10rem;
+    padding: 1rem 1.6rem;
+
+    font-weight: 800;
+    text-transform: uppercase;
+
+    color: var(--color-btn);
+    background-color: var(--color-btn-bg);
+    border: 3px solid var(--color-btn);
+    border-radius: 8px;
+    text-shadow: 2px 3px 3px hsla(0, 0%, 0%, 0.3);
+    box-shadow: hsla(0, 0%, 0%, 0.25) 0 14px 28px, hsla(0, 0%, 0%, 0.22) 0 10px 10px, inset 0 2px 4px hsla(0, 0%, 0%, 0.25);
+    transition: color 0.2s ease-in-out 0.1s, background-color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s;
+
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: var(--color-btn-hover);
+    background-color: var(--color-btn-bg-hover);
+    border-color: var(--color-btn-hover);
+    transition: color 0.2s ease-in-out 0.1s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out 0.1s;
+  }
+
+  li:first-of-type button {
+    border-radius: 20px 8px 8px 20px;
+  }
+
+  li:last-of-type button {
+    border-radius: 8px 20px 20px 8px;
+  }
+
+  li + li {
+    margin-left: 5px;
+  }
+}
+
+h1 {
+  @extend %letterpress;
+
+  grid-area: title;
+
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  writing-mode: vertical-rl;
+}
+
+.toggle {
+  width: 6rem;
+  height: 3rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+
+  background-color: var(--color-btn-bg);
+  border: 3px solid var(--color-btn);
+  border-radius: 10rem;
+  box-shadow: hsla(0, 0%, 0%, 0.16) 0 3px 6px, hsla(0, 0%, 0%, 0.23) 0 3px 6px, inset 0 2px 4px hsla(0, 0%, 0%, 0.25);
+  transition: background-color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-btn-bg-hover);
+    border-color: var(--color-btn-hover);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  }
+
+  span {
+    width: 1.8rem;
+    height: 1.8rem;
+    position: absolute;
+    left: 23%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--color-btn);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.5), inset 0 2px 4px hsla(0, 0%, 0%, 0.15);
+    transition: left 0.2s ease-in-out, background-color 0.2s ease-in-out 0.1s;
+  }
+
+  &:hover span {
+    background-color: var(--color-btn-hover);
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked + span {
+    left: 77%;
+  }
+}
