@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Notion2Anki Card Cleaner</title>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <h1>Notion2Anki Card Cleaner</h1>
+        <ul class="tools">
+          <li>
+            <button id="clean">Clean</button>
+          </li>
+          <li>
+            <button id="copy">Copy</button>
+          </li>
+          <li>
+            <button id="reset">Reset</button>
+          </li>
+        </ul>
+        <label class="code">
+          <textarea
+            id="code-before"
+            spellcheck="false"
+            placeholder="&nbsp;"
+          ></textarea>
+          <span>Paste your<br />code here...</span>
+        </label>
+        <label class="code">
+          <textarea
+            id="code-after"
+            spellcheck="false"
+            placeholder="&nbsp;"
+          ></textarea>
+          <span>Your clean<br />code here...</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="toggle-theme" />
+          <span aria-hidden="true"></span>
+        </label>
+      </main>
+    </div>
+  </body>
+</html>
