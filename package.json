@@ -14,9 +14,12 @@
     "url": "git+https://github.com/jorgecancinof/notion2anki-card-cleaner.git"
   },
   "keywords": [
-    "anki",
     "notion2anki",
-    "cards"
+    "anki",
+    "cards",
+    "html",
+    "code",
+    "cleaner"
   ],
   "author": "Jorge Cancino",
   "license": "ISC",
