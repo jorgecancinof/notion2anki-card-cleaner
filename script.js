@@ -1,6 +1,6 @@
 "use strict";
 
-const container = document.querySelector(".container");
+const body = document.querySelector("body");
 const codeBefore = document.getElementById("code-before");
 const codeAfter = document.getElementById("code-after");
 const cleanBtn = document.getElementById("clean");
@@ -68,7 +68,7 @@ function reset() {
 }
 
 function toggleTheme() {
-  container.classList.toggle("light");
+  body.classList.toggle("light");
 }
 
 codeBefore.addEventListener("click", function () {

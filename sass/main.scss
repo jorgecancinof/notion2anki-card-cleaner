@@ -75,7 +75,7 @@ html {
   font-size: 62.5%;
 }
 
-.container {
+body {
   display: grid;
   place-content: center;
   min-height: 100vh;
@@ -195,7 +195,6 @@ h1 {
   grid-area: title;
 
   font-size: 3rem;
-  font-weight: 800;
   text-align: center;
   writing-mode: vertical-rl;
 }
