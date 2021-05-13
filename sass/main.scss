@@ -105,44 +105,40 @@ main {
 
 .code {
   position: relative;
+}
+.code textarea {
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem;
 
-  textarea {
-    width: 100%;
-    height: 100%;
-    padding: 2.5rem;
+  font-family: monospace;
 
-    font-family: monospace;
+  background-color: hsla(0, 0%, 0%, 0.1);
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--shadow-inner);
 
-    background-color: hsla(0, 0%, 0%, 0.1);
-    border: none;
-    border-radius: 10px;
-    box-shadow: var(--shadow-inner);
+  resize: none;
+  overflow-y: scroll;
+}
+.code textarea:focus {
+  box-shadow: var(--shadow-focus), var(--shadow-inner);
+}
+.code span {
+  @extend %letterpress;
 
-    resize: none;
-    overflow-y: scroll;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  textarea:focus {
-    box-shadow: var(--shadow-focus), var(--shadow-inner);
-  }
+  font-weight: 800;
+  font-size: 4rem;
 
-  span {
-    @extend %letterpress;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    font-weight: 800;
-    font-size: 4rem;
-
-    pointer-events: none;
-  }
-
-  textarea:not(:placeholder-shown) + span {
-    display: none;
-  }
+  pointer-events: none;
+}
+.code textarea:not(:placeholder-shown) + span {
+  display: none;
 }
 
 .tools {
@@ -150,43 +146,38 @@ main {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -75%);
+}
+.tools button {
+  min-width: 10rem;
+  padding: 1rem 1.6rem;
 
-  button {
-    min-width: 10rem;
-    padding: 1rem 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
 
-    font-weight: 800;
-    text-transform: uppercase;
+  color: var(--color-btn);
+  background-color: var(--color-btn-bg);
+  border: 3px solid var(--color-btn);
+  border-radius: 8px;
+  text-shadow: 2px 3px 3px hsla(0, 0%, 0%, 0.3);
+  box-shadow: hsla(0, 0%, 0%, 0.25) 0 14px 28px, hsla(0, 0%, 0%, 0.22) 0 10px 10px, inset 0 2px 4px hsla(0, 0%, 0%, 0.25);
+  transition: color 0.2s ease-in-out 0.1s, background-color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s;
 
-    color: var(--color-btn);
-    background-color: var(--color-btn-bg);
-    border: 3px solid var(--color-btn);
-    border-radius: 8px;
-    text-shadow: 2px 3px 3px hsla(0, 0%, 0%, 0.3);
-    box-shadow: hsla(0, 0%, 0%, 0.25) 0 14px 28px, hsla(0, 0%, 0%, 0.22) 0 10px 10px, inset 0 2px 4px hsla(0, 0%, 0%, 0.25);
-    transition: color 0.2s ease-in-out 0.1s, background-color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s;
-
-    cursor: pointer;
-  }
-
-  button:hover {
-    color: var(--color-btn-hover);
-    background-color: var(--color-btn-bg-hover);
-    border-color: var(--color-btn-hover);
-    transition: color 0.2s ease-in-out 0.1s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out 0.1s;
-  }
-
-  li:first-of-type button {
-    border-radius: 20px 8px 8px 20px;
-  }
-
-  li:last-of-type button {
-    border-radius: 8px 20px 20px 8px;
-  }
-
-  li + li {
-    margin-left: 5px;
-  }
+  cursor: pointer;
+}
+.tools button:hover {
+  color: var(--color-btn-hover);
+  background-color: var(--color-btn-bg-hover);
+  border-color: var(--color-btn-hover);
+  transition: color 0.2s ease-in-out 0.1s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out 0.1s;
+}
+.tools li:first-of-type button {
+  border-radius: 20px 8px 8px 20px;
+}
+.tools li:last-of-type button {
+  border-radius: 8px 20px 20px 8px;
+}
+.tools li + li {
+  margin-left: 5px;
 }
 
 h1 {
@@ -214,36 +205,31 @@ h1 {
   transition: background-color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s;
 
   cursor: pointer;
+}
+.toggle:hover {
+  background-color: var(--color-btn-bg-hover);
+  border-color: var(--color-btn-hover);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.toggle span {
+  width: 1.8rem;
+  height: 1.8rem;
+  position: absolute;
+  left: 23%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-  &:hover {
-    background-color: var(--color-btn-bg-hover);
-    border-color: var(--color-btn-hover);
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  }
-
-  span {
-    width: 1.8rem;
-    height: 1.8rem;
-    position: absolute;
-    left: 23%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    background-color: var(--color-btn);
-    border-radius: 50%;
-    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.5), inset 0 2px 4px hsla(0, 0%, 0%, 0.15);
-    transition: left 0.2s ease-in-out, background-color 0.2s ease-in-out 0.1s;
-  }
-
-  &:hover span {
-    background-color: var(--color-btn-hover);
-  }
-
-  input {
-    display: none;
-  }
-
-  input:checked + span {
-    left: 77%;
-  }
+  background-color: var(--color-btn);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.5), inset 0 2px 4px hsla(0, 0%, 0%, 0.15);
+  transition: left 0.2s ease-in-out, background-color 0.2s ease-in-out 0.1s;
+}
+.toggle:hover span {
+  background-color: var(--color-btn-hover);
+}
+.toggle input {
+  display: none;
+}
+.toggle input:checked + span {
+  left: 77%;
 }
