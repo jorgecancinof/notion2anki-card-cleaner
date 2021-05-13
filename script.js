@@ -18,7 +18,7 @@ function cleanPatterns(code) {
     /<\w+>(\n)?<\/\w+>/g,
   ];
 
-  let cleanCode = code.trim();
+  let cleanCode = code;
   for (const pattern of patterns) {
     cleanCode = cleanCode.replace(pattern, "");
   }
@@ -33,7 +33,7 @@ function insertImageBreaks(code) {
 function cleanLastBreaks(code) {
   const lastBreak = /<br>(<\/\w+>)?$/g;
 
-  let cleanCode = code.trim();
+  let cleanCode = code;
   while (cleanCode.match(lastBreak) !== null) {
     cleanCode = cleanCode.replace(lastBreak, "$1");
   }
@@ -42,7 +42,7 @@ function cleanLastBreaks(code) {
 }
 
 function clean() {
-  let code = codeBefore.value;
+  let code = codeBefore.value.trim();
 
   if (code === "") {
     alert("Paste your Anki's card HTML code to continue.");
