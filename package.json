@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm-run-all --parallel dev-server watch:sass",
     "dev-server": "live-server",
-    "watch:sass": "chokidar ./sass/**/*.scss --command 'sass ./sass/main.scss | postcss --use autoprefixer > ./style.css'",
-    "build:css": "sass ./sass/main.scss --style=compressed --quiet | postcss --use autoprefixer --no-map > ./style.css"
+    "watch:sass": "chokidar ./style.scss --command 'sass ./style.scss | postcss --use autoprefixer > ./style.css'",
+    "build:css": "sass ./style.scss --style=compressed --quiet | postcss --use autoprefixer --no-map > ./style.css"
   },
   "repository": {
     "type": "git",
