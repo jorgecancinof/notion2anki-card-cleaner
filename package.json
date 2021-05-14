@@ -22,7 +22,7 @@
     "cleaner"
   ],
   "author": "Jorge Cancino",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jorgecancinof/notion2anki-card-cleaner/issues"
   },
