@@ -10,12 +10,12 @@ const toggleThemeBtn = document.getElementById("toggle-theme");
 
 function cleanPatterns(code) {
   const patterns = [
-    /<[/]?summary.*?>/g,
+    /\n/g,
     /<[/]?pre.*?>/g,
-    / id=".*?"/g,
-    / class=""/g,
+    /<[/]?summary.*?>/g,
+    /\sid=".*?"/g,
+    /\sclass=""/g,
     /<style>.*?<\/style>/g,
-    /<\w+>(\n)?<\/\w+>/g,
   ];
 
   let cleanCode = code;
@@ -26,19 +26,12 @@ function cleanPatterns(code) {
   return cleanCode;
 }
 
-function insertImageBreaks(code) {
-  return code.replace(/([^>\s])(<img)/g, "$1<br><br>$2");
+function cleanWrappedImages(code) {
+  return code.replace(/(?:<br>|<p>)*(<img.*?>)(?:<br>|<\/p>)*/g, "<p>$1</p>");
 }
 
 function cleanLastBreaks(code) {
-  const lastBreak = /<br>(<\/\w+>)?$/g;
-
-  let cleanCode = code;
-  while (cleanCode.match(lastBreak) !== null) {
-    cleanCode = cleanCode.replace(lastBreak, "$1");
-  }
-
-  return cleanCode;
+  return code.replace(/(?:<br>)+((?:<\/\w+>)*)$/g, "$1");
 }
 
 function clean() {
@@ -50,10 +43,11 @@ function clean() {
   }
 
   code = cleanPatterns(code);
-  code = insertImageBreaks(code);
+  code = cleanWrappedImages(code);
   code = cleanLastBreaks(code);
+  code = html_beautify(code);
 
-  codeAfter.value = html_beautify(code);
+  codeAfter.value = code;
 }
 
 function copy() {
