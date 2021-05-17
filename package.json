@@ -14,10 +14,10 @@
     "url": "git+https://github.com/jorgecancinof/notion2anki-card-cleaner.git"
   },
   "keywords": [
+    "notion",
     "notion2anki",
     "anki",
-    "cards",
-    "html",
+    "card",
     "code",
     "cleaner"
   ],
