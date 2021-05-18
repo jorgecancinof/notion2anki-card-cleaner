@@ -13,6 +13,7 @@ function cleanPatterns(code) {
     /\n/g,
     /<[/]?pre.*?>/g,
     /<[/]?summary.*?>/g,
+    /<[/]?figure.*?>/g,
     /\sid=".*?"/g,
     /\sclass=""/g,
     /<style>.*?<\/style>/g,
@@ -27,7 +28,7 @@ function cleanPatterns(code) {
 }
 
 function cleanWrappedImages(code) {
-  return code.replace(/(?:<br>|<p>)*(<img.*?>)(?:<br>|<\/p>)*/g, "<p>$1</p>");
+  return code.replace(/(?:<br>|<p>|<a.*?>)*(<img.*?>)(?:<br>|<\/p>|<\/a.*?>)*/g, "<p>$1</p>");
 }
 
 function cleanLastBreaks(code) {
