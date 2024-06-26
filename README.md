@@ -1,13 +1,13 @@
 # Notion2Anki Card Cleaner
 
-This tool cleans [Anki] cards by removing unnecessary HTML code generated when exporting from [Notion] using [Notion2Anki].
+This tool automates the cleanup of [Anki] flashcards imported from [Notion2Anki], preserving card styling and formatting.
 
 > [!NOTE]
-> **I just switched to Mochi**
+> **I just switched to [Mochi]**
 >
-> I switched to [Mochi] for my flashcards because my previous workflow with Anki and Notion was still causing a lot of friction. Mochi is an excellent alternative to Anki that natively supports markdown, which simplifies my process significantly. I highly recommend it to anyone who needs to deal with code blocks in their flashcards.
+> My previous workflow with Notion, Notion2Anki, and Anki was still causing a lot of friction, until I discovered Mochi. This excellent alternative to Anki natively supports markdown, which simplifies my process significantly. I highly recommend it to anyone who needs to deal with code blocks in their flashcards.
 >
-> Therefore, I’m no longer using or maintaining this tool. However, I’m leaving it here for those who might still find it useful, whether to use it as-is or to modify it according to their needs.
+> Therefore, I'm no longer using or maintaining this tool. However, I'm leaving it here for those who might still find it useful, whether to use it as-is or to modify it according to their needs.
 
 [![Screenshot](screenshot.png)](https://codepen.io/jorgecancinof/full/NWdBOMg)
 
@@ -23,15 +23,14 @@ This tool cleans [Anki] cards by removing unnecessary HTML code generated when e
 
 ## Motivation
 
-This tool addresses a specific issue in my personal study workflow:
+This tool automates a crucial step in my personal study workflow, addressing a specific issue:
 
 1. I create flashcards in [Notion] during study sessions.
 2. I export these to HTML and use [Notion2Anki] to generate an [Anki] import file.
 3. After importing, I replace code blocks with syntax-highlighted screenshots from [Carbon].
 4. However, this process often breaks the card styling.
-5. Previously, I had to manually clean the card code to fix the styling.
-
-This tool automates the cleaning process, saving time and effort.
+5. Previously, I had to manually clean the HTML code to fix the styling.
+6. This tool automates the cleaning process, saving significant time and effort.
 
 ## License
 
