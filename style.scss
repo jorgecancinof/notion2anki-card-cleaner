@@ -1,3 +1,5 @@
+$breakpoint: 1024px;
+
 @mixin colors-btn($color) {
   --color-btn: #{$color};
   --color-btn-bg: #{darken($color, 20%)};
@@ -101,10 +103,27 @@ main {
   border-radius: 10px;
   box-shadow: hsla(0, 0%, 0%, 0.56) 0 2.2rem 7rem 4px;
   transition: background-color 0.2s ease-in-out 0.1s;
+
+  @media (max-width: $breakpoint) {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "code-before" "tools" "code-after";
+    justify-items: center;
+    width: 100vw;
+    padding: 1.5rem;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 .code {
   position: relative;
+
+  @media (max-width: $breakpoint) {
+    width: 100%;
+    height: 50rem;
+  }
 }
 .code textarea {
   width: 100%;
@@ -136,6 +155,10 @@ main {
   font-size: 4rem;
 
   pointer-events: none;
+
+  @media (max-width: $breakpoint) {
+    font-size: 2.8rem;
+  }
 }
 .code textarea:not(:placeholder-shown) + span {
   display: none;
@@ -143,9 +166,18 @@ main {
 
 .tools {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -75%);
+
+  @media (max-width: $breakpoint) {
+    grid-area: tools;
+    position: static;
+    transform: none;
+  }
 }
 .tools button {
   min-width: 10rem;
@@ -176,9 +208,6 @@ main {
 .tools li:last-of-type button {
   border-radius: 8px 20px 20px 8px;
 }
-.tools li + li {
-  margin-left: 5px;
-}
 
 h1 {
   @extend %letterpress;
@@ -188,6 +217,11 @@ h1 {
   font-size: 3rem;
   text-align: center;
   writing-mode: vertical-rl;
+
+  @media (max-width: $breakpoint) {
+    font-size: 2.5rem;
+    writing-mode: horizontal-tb;
+  }
 }
 
 .toggle {
@@ -205,6 +239,13 @@ h1 {
   transition: background-color 0.2s ease-in-out 0.1s, border-color 0.2s ease-in-out 0.1s;
 
   cursor: pointer;
+
+  @media (max-width: $breakpoint) {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    transform: none;
+  }
 }
 .toggle:hover {
   background-color: var(--color-btn-bg-hover);
