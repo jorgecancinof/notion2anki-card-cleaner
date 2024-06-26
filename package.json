@@ -2,7 +2,7 @@
   "name": "notion2anki-card-cleaner",
   "private": true,
   "version": "1.0.0",
-  "description": "Automated HTML cleanup tool for Anki flashcards imported from Notion2Anki to preserve card styling",
+  "description": "Automated cleanup tool for Anki flashcards imported from Notion2Anki to preserve card styling",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
