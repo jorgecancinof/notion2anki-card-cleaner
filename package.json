@@ -5,7 +5,7 @@
   "description": "Automated HTML cleanup tool for Anki flashcards imported from Notion2Anki to preserve card styling",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
